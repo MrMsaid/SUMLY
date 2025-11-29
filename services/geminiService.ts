@@ -4,7 +4,7 @@ import { AnalysisResult } from "../types";
 export const analyzeReceiptText = async (text: string): Promise<AnalysisResult> => {
   // Initialize the client inside the function to prevent white screen crashes 
   // on app startup if the API key is not yet available in the environment.
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: "AIzaSyCya9rSxJvm9WurNW_yoilWdObGnYyV2Js"});
   const model = "gemini-2.5-flash";
 
   const responseSchema = {
