@@ -91,6 +91,20 @@ export default function App() {
         </div>
       </header>
 
+      {/* 1.5. INSIGHT / HOOK SECTION */}
+      <section className="py-16 bg-gradient-to-b from-white to-slate-50">
+         <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+               <div className="inline-block p-4 rounded-full bg-indigo-50 mb-6">
+                  <span className="text-3xl">💡</span>
+               </div>
+               <p className="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed">
+                  "У денег есть подлое свойство — они исчезают именно там, где нет внимания. Мы часто бросаем учет, потому что возиться с чеками и таблицами — это адская скука, но именно здесь захлопывается ловушка. <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded">Игнорировать свои расходы — значит собственноручно сжигать 15% дохода каждый месяц</span>, даже не понимая, куда именно утекают деньги."
+               </p>
+            </div>
+         </div>
+      </section>
+
       {/* 2. PROBLEM & SOLUTION */}
       <section id="problem" className="py-20 bg-slate-50 border-y border-slate-200">
         <div className="container mx-auto px-4">
