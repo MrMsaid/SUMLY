@@ -191,7 +191,7 @@ export default function App() {
                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                         <Smartphone className="text-indigo-600 mb-2" size={24} />
                         <h4 className="font-bold text-slate-900">Scan & Go</h4>
-                        <p className="text-xs text-slate-500 mt-1">Фото чека -> JSON детализация</p>
+                        <p className="text-xs text-slate-500 mt-1">Фото чека &rarr; JSON детализация</p>
                      </div>
                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                         <BrainCircuit className="text-indigo-600 mb-2" size={24} />
