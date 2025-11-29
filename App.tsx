@@ -70,7 +70,7 @@ export default function App() {
            {/* Badge */}
            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-indigo-100 shadow-sm text-indigo-700 text-sm font-semibold mb-8 hover:scale-105 transition-transform cursor-default">
               <Sparkles size={16} className="text-indigo-500 fill-indigo-100" />
-              <span>Google Gemini Hackathon 2025</span>
+              <span>AI500 Hackathon 2025</span>
            </div>
 
            {/* Headline */}
