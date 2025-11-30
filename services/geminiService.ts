@@ -32,7 +32,7 @@ export const analyzeReceiptText = async (text: string): Promise<AnalysisResult> 
   const prompt = `
     Analyze the following text which represents a receipt or expense input in Uzbekistan.
     Identify the items, prices, and categorize them.
-    Provide a helpful financial insight and a savings tip relevant to the Uzbek market.
+    Provide a helpful financial insight and a savings tip relevant to the Uzbek market in a Russian language.
     Input Text: "${text}"
   `;
 
