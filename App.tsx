@@ -159,21 +159,41 @@ export default function App() {
       </header>
 
       {/* 2. PROBLEM SECTION */}
-      <section id="problem" className="py-20 bg-slate-50 border-y border-slate-200">
+      <section id="problem" className="py-24 bg-slate-50 border-y border-slate-200">
         <div className="container mx-auto px-4">
+          
+          {/* New Philosophical Intro */}
+          <div className="max-w-4xl mx-auto text-center mb-20">
+             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
+               У денег есть подлое свойство — <br/>
+               <span className="text-indigo-900">они исчезают там, где нет внимания.</span>
+             </h2>
+             <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+               Мы часто бросаем учет, потому что возиться с чеками и таблицами — это адская скука, но именно здесь захлопывается ловушка.
+             </p>
+             <div className="relative inline-block group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                <div className="relative bg-white border border-red-100 px-6 py-5 rounded-xl shadow-sm">
+                   <p className="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed">
+                     Игнорировать свои расходы — значит <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">собственноручно сжигать 15% дохода</span> каждый месяц, даже не понимая, куда именно утекают деньги.
+                   </p>
+                </div>
+             </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
-            {/* Problem */}
+            {/* Problem Details */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-100 text-red-700 text-sm font-bold mb-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-100 text-slate-600 text-sm font-bold mb-2">
                   <AlertTriangle size={18} />
-                  <span>Проблема</span>
+                  <span>Барьеры</span>
               </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
+              <h3 className="text-3xl font-bold text-slate-900 leading-tight">
                 Почему 80% людей бросают учет финансов через неделю?
-              </h2>
+              </h3>
               <p className="text-lg text-slate-600">
-                Мы все знаем, что нужно следить за расходами. Но рутина убивает мотивацию быстрее, чем мы успеваем накопить.
+                Мотивация падает, когда рутина превышает пользу.
               </p>
               
               <div className="space-y-4 mt-4">
