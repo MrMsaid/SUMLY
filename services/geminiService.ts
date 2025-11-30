@@ -2,9 +2,19 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { AnalysisResult } from "../types";
 
 export const analyzeReceiptText = async (text: string): Promise<AnalysisResult> => {
-  // Initialize the client inside the function to prevent white screen crashes 
-  // on app startup if the API key is not yet available in the environment.
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyCya9rSxJvm9WurNW_yoilWdObGnYyV2Js"});
+  // CRITICAL: We initialize the client INSIDE the function.
+  // If we do this at the top level, and the API key is missing or invalid, 
+  // the entire website will crash (white screen) immediately on load.
+  // By moving it here, the site loads, and we only get an error when the user clicks the button.
+  
+  const apiKey = process.env.API_KEY;
+
+  if (!apiKey) {
+    console.error("API Key is missing. Make sure API_KEY is set in your environment variables.");
+    throw new Error("API Key is missing");
+  }
+
+  const ai = new GoogleGenAI({ apiKey: apiKey });
   const model = "gemini-2.5-flash";
 
   const responseSchema = {
@@ -32,7 +42,7 @@ export const analyzeReceiptText = async (text: string): Promise<AnalysisResult> 
   const prompt = `
     Analyze the following text which represents a receipt or expense input in Uzbekistan.
     Identify the items, prices, and categorize them.
-    Provide a helpful financial insight and a savings tip relevant to the Uzbek market in a Russian language.
+    Provide a helpful financial insight and a savings tip relevant to the Uzbek market.
     Input Text: "${text}"
   `;
 
