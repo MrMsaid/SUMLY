@@ -185,7 +185,7 @@ export default function App() {
             
             {/* Problem Details */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-100 text-slate-600 text-sm font-bold mb-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-100 text-red-600 text-sm font-bold mb-2">
                   <AlertTriangle size={18} />
                   <span>Барьеры</span>
               </div>
@@ -368,7 +368,7 @@ export default function App() {
                <div className="group text-center">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-indigo-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
+                     <img src="/Images/Said.jpg" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10" />
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Мухаммадсаид</h3>
                   <div className="text-indigo-600 text-sm font-medium">Fullstack Lead</div>
@@ -376,7 +376,7 @@ export default function App() {
                <div className="group text-center">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-purple-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
+                     <img src="/Images/Azamat.jpg" alt="Азамат" className="w-full h-full object-cover rounded-full relative z-10" />
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Азамат</h3>
                   <div className="text-indigo-600 text-sm font-medium">AI Engineer</div>
@@ -384,7 +384,7 @@ export default function App() {
                <div className="group text-center">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-green-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jonas" alt="Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
+                     <img src="/Images/Sherzod.jpg" alt="Шерзод" className="w-full h-full object-cover rounded-full relative z-10" />
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Шерзод</h3>
                   <div className="text-indigo-600 text-sm font-medium">Product Manager</div>
