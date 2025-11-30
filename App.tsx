@@ -208,7 +208,7 @@ export default function App() {
                    <div className="mt-1 text-red-500"><AlertTriangle /></div>
                    <div>
                       <h4 className="font-bold text-slate-900">Деньги исчезают незаметно</h4>
-                      <p className="text-sm text-slate-600 mt-1">"Продукты — 500,000 сумов". А что именно? Снеки, алкоголь или мясо? Без детализации нет контроля.</p>
+                      <p className="text-sm text-slate-600 mt-1">"Продукты — 500,000 сумов". А что именно? Снеки, безделушки или мясо? Без детализации нет контроля.</p>
                    </div>
                 </div>
               </div>
