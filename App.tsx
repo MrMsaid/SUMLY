@@ -474,9 +474,9 @@ export default function App() {
                   <Trophy size={14} />
                   <span>Our Story</span>
                </div>
-               <h2 className="text-3xl font-bold text-slate-900 mb-6">Команда, закаленная опытом</h2>
+               <h2 className="text-3xl font-bold text-slate-900 mb-6">Наша команда</h2>
                <p className="text-lg text-slate-600 leading-relaxed">
-                 Sumly — это не случайная идея. Это результат бесчисленных проб, ошибок и "провалов", которые стали нашими главными уроками. Мы объединили техническую мощь, инновации ИИ и харизму, чтобы создать то, что действительно работает.
+                 Sumly появилась не в переговорке, а после десятков неудачных гипотез. Мы ошибались. Много. Но именно эти "провалы" научили нас отличать хайп вокруг нейросетей от реальной пользы. Мы взяли наш инженерный опыт, отсекли лишнее и собрали инструмент, который решает задачу, а не просто тратит ваши токены.
                </p>
             </div>
 
@@ -486,7 +486,7 @@ export default function App() {
                <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-indigo-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
+                     <img src="https://images.unsplash.com/photo-1764522874273-e34dfc394fd0?q=80&w=735&auto=format&fit=crop" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
                      <div className="absolute bottom-0 right-0 z-20 bg-indigo-600 p-1.5 rounded-full border-2 border-white text-white">
                         <Code size={14} />
                      </div>
@@ -502,7 +502,7 @@ export default function App() {
                <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-purple-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&h=400&fit=crop" alt="Азамат" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
+                     <img src="https://images.unsplash.com/photo-1764521929889-26cb17392e1a?q=80&w=784&auto=format&fit=crop" alt="Азамат" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
                      <div className="absolute bottom-0 right-0 z-20 bg-purple-600 p-1.5 rounded-full border-2 border-white text-white">
                         <BrainCircuit size={14} />
                      </div>
@@ -518,7 +518,7 @@ export default function App() {
                <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-green-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Шерзод" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
+                     <img src="https://images.unsplash.com/photo-1764521046727-76a239f925a3?q=80&w=1635&auto=format&fit=crop" alt="Шерзод" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
                      <div className="absolute bottom-0 right-0 z-20 bg-green-600 p-1.5 rounded-full border-2 border-white text-white">
                         <Mic size={14} />
                      </div>
@@ -526,7 +526,7 @@ export default function App() {
                   <h3 className="font-bold text-lg text-slate-900">Шерзод</h3>
                   <div className="text-green-600 text-sm font-bold mb-3 uppercase tracking-wide">Vision & Voice</div>
                   <p className="text-sm text-slate-500 leading-relaxed">
-                     Голос и лицо идеи. Презентует виденье так, что в него невозможно не поверить. Наш лучший питчер.
+                     Дизайнер-презентатор. Переводит сложную технологию в понятный нарратив, убедительный для инвесторов.
                   </p>
                </div>
 
@@ -541,7 +541,7 @@ export default function App() {
                <div className="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-white text-xs font-bold">S</div>
                <span className="font-bold text-white">SUMLY</span>
             </div>
-            <p className="text-xs">&copy; 2025 Hackathon Prototype. Powered by Google Gemini.</p>
+            <p className="text-xs">&copy; 2025 Hackathon Prototype</p>
          </div>
       </footer>
 
