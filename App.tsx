@@ -431,7 +431,7 @@ export default function App() {
                         </li>
                         <li className="flex gap-2 items-center">
                             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                            Парсинг SMS от Click / Payme
+                            Мультиплатформенность
                         </li>
                         <li className="flex gap-2 items-center">
                             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
