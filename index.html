@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SUMLY</title>
+    <title>Sumly - Умный учет финансов</title>
+    
+    <!-- FIX 1: OpenGraph Tags for Telegram Bot Preview -->
+    <meta property="og:title" content="Sumly: Умный AI-бухгалтер" />
+    <meta property="og:description" content="Автоматический учет финансов через QR-коды чеков и AI. Без таблиц, без ручного ввода." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sumly-psi.vercel.app/" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
@@ -25,6 +32,24 @@
         background-image: radial-gradient(#6366f1 1px, transparent 1px);
         background-size: 32px 32px;
       }
+      /* Loading Spinner for the "White Screen" issue */
+      #loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 1.5rem;
+        color: #6366f1;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        font-weight: 600;
+      }
+      #loader span {
+        font-size: 0.875rem;
+        color: #94a3b8;
+        font-weight: 400;
+      }
     </style>
 <script type="importmap">
 {
@@ -41,7 +66,13 @@
 </script>
 </head>
   <body>
-    <div id="root"></div>
+    <!-- FIX 2: Content that shows BEFORE React loads -->
+    <div id="root">
+        <div id="loader">
+            <div>Загрузка Sumly AI...</div>
+            <span>(Scanning for fiscal receipts...)</span>
+        </div>
+    </div>
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>

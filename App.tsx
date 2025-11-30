@@ -23,7 +23,12 @@ import {
   ShieldCheck,
   TrendingUp,
   CreditCard,
-  PieChart
+  PieChart,
+  QrCode,
+  Map,
+  Clock,
+  Mic,
+  Trophy
 } from 'lucide-react';
 
 export default function App() {
@@ -46,10 +51,11 @@ export default function App() {
             </div>
             <span>SUMLY <span className="text-[10px] font-bold uppercase text-indigo-500 ml-1 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100 align-middle">Beta</span></span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
             <button onClick={() => scrollToSection('problem')} className="hover:text-indigo-600 transition-colors">Проблема</button>
             <button onClick={() => scrollToSection('solution')} className="hover:text-indigo-600 transition-colors">Решение</button>
             <button onClick={() => scrollToSection('tech')} className="hover:text-indigo-600 transition-colors">Технологии</button>
+            <button onClick={() => scrollToSection('roadmap')} className="hover:text-indigo-600 transition-colors">Планы</button>
             <button onClick={() => scrollToSection('team')} className="hover:text-indigo-600 transition-colors">Команда</button>
           </div>
           <button 
@@ -229,24 +235,40 @@ export default function App() {
                   </h3>
                   
                   <div className="space-y-6">
+                     {/* Step 1 - QR Code USP */}
                      <div className="flex items-start gap-4 group">
-                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">1</div>
+                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">
+                           <QrCode size={20} />
+                        </div>
                         <div>
-                           <h4 className="font-bold text-slate-900">Сбор данных</h4>
-                           <p className="text-sm text-slate-600">Фото чека, голосовое сообщение или текст. Любой формат превращается в данные.</p>
+                           <h4 className="font-bold text-slate-900 flex items-center gap-2">
+                              Smart QR-Скан
+                              <span className="text-[10px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full uppercase tracking-wide border border-indigo-200">Unique in UZ</span>
+                           </h4>
+                           <p className="text-sm text-slate-600 mt-1">
+                              Сканируем фискальный QR-код чека (стандарт ГНК). Это <strong>надежнее OCR</strong> и быстрее ручного ввода — мы получаем цифровой оригинал данных в JSON.
+                           </p>
                         </div>
                      </div>
                      <div className="w-0.5 h-6 bg-slate-200 ml-5"></div>
+                     
+                     {/* Step 2 */}
                      <div className="flex items-start gap-4 group">
-                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">2</div>
+                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">
+                           <BrainCircuit size={20} />
+                        </div>
                         <div>
                            <h4 className="font-bold text-slate-900">Анализ (Gemini 2.5)</h4>
-                           <p className="text-sm text-slate-600">ИИ распознает товары, цены и категории. Даже если в чеке сокращения или ошибки.</p>
+                           <p className="text-sm text-slate-600">ИИ автоматически категоризирует товары и исправляет неточности в названиях (например, "Moloko Domik" → "Молочные продукты").</p>
                         </div>
                      </div>
                      <div className="w-0.5 h-6 bg-slate-200 ml-5"></div>
+                     
+                     {/* Step 3 */}
                      <div className="flex items-start gap-4 group">
-                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">3</div>
+                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">
+                           <Lightbulb size={20} />
+                        </div>
                         <div>
                            <h4 className="font-bold text-slate-900">Умные советы</h4>
                            <p className="text-sm text-slate-600">Система не просто считает, а советует: "Ты тратишь на кофе 200$ в месяц, давай сократим?"</p>
@@ -354,41 +376,160 @@ export default function App() {
          </div>
       </section>
 
-      {/* 5. TEAM */}
-      <section id="team" className="py-20 bg-white border-t border-slate-100">
-         <div className="container mx-auto px-4">
+      {/* 5. ROADMAP SECTION */}
+      <section id="roadmap" className="py-20 bg-white overflow-hidden relative">
+        <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide mb-4">
-                  <span>Dream Team</span>
+               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wide mb-4">
+                  <Map size={14} />
+                  <span>Future Plans</span>
                </div>
-               <h2 className="text-3xl font-bold text-slate-900">Команда проекта</h2>
+               <h2 className="text-3xl font-bold text-slate-900">Планы развития</h2>
+            </div>
+
+            <div className="relative max-w-5xl mx-auto">
+               {/* Connecting Line (Desktop) */}
+               <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-100 z-0"></div>
+
+               <div className="grid md:grid-cols-3 gap-8 relative z-10">
+                  {/* Card 1: MVP */}
+                  <div className="bg-white p-6 rounded-2xl border-2 border-green-100 shadow-sm relative group hover:-translate-y-1 transition-transform">
+                     <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-6 border-4 border-white shadow-sm relative z-10">
+                        <CheckCircle2 size={24} />
+                     </div>
+                     <div className="inline-block px-2 py-0.5 rounded-md bg-green-100 text-green-700 text-[10px] font-bold uppercase mb-2">
+                        Готово
+                     </div>
+                     <h3 className="text-lg font-bold mb-3 text-slate-900">MVP (Q1 2025)</h3>
+                     <ul className="space-y-2 text-sm text-slate-600">
+                        <li className="flex gap-2">
+                            <span className="text-green-500">✓</span> Сканирование фискальных QR-кодов
+                        </li>
+                        <li className="flex gap-2">
+                            <span className="text-green-500">✓</span> Интеграция Gemini 2.5 Flash
+                        </li>
+                        <li className="flex gap-2">
+                            <span className="text-green-500">✓</span> Базовая категоризация
+                        </li>
+                     </ul>
+                  </div>
+
+                  {/* Card 2: Integrations (Current Focus) */}
+                  <div className="bg-white p-6 rounded-2xl border-2 border-indigo-500 shadow-xl shadow-indigo-100 relative group transform md:-translate-y-4">
+                     <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-white mb-6 border-4 border-white shadow-lg shadow-indigo-200 relative z-10">
+                        <Rocket size={24} />
+                     </div>
+                     <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-lg">
+                        В РАЗРАБОТКЕ
+                     </div>
+                     <h3 className="text-lg font-bold mb-3 text-slate-900">Интеграции (Q2 2025)</h3>
+                     <p className="text-xs text-slate-500 mb-4">Главная цель: автоматический импорт без участия пользователя.</p>
+                     <ul className="space-y-3 text-sm text-slate-700 font-medium">
+                        <li className="flex gap-2 items-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                            Telegram Bot (Фото/Голос)
+                        </li>
+                        <li className="flex gap-2 items-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                            Парсинг SMS от Click / Payme
+                        </li>
+                        <li className="flex gap-2 items-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                            Экспорт отчетов в Excel/PDF
+                        </li>
+                     </ul>
+                  </div>
+
+                  {/* Card 3: Scaling */}
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative group hover:-translate-y-1 transition-transform opacity-75 hover:opacity-100">
+                     <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400 mb-6 border-4 border-white shadow-sm relative z-10">
+                        <Clock size={24} />
+                     </div>
+                     <div className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-slate-500 text-[10px] font-bold uppercase mb-2">
+                        Планы
+                     </div>
+                     <h3 className="text-lg font-bold mb-3 text-slate-900">Экосистема (Q3 2025)</h3>
+                     <ul className="space-y-2 text-sm text-slate-600">
+                        <li className="flex gap-2">
+                            <span className="text-slate-300">•</span> Семейный бюджет (Multi-user)
+                        </li>
+                        <li className="flex gap-2">
+                            <span className="text-slate-300">•</span> Геймификация экономии
+                        </li>
+                        <li className="flex gap-2">
+                            <span className="text-slate-300">•</span> Советы по инвестициям
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+        </div>
+      </section>
+
+      {/* 6. TEAM */}
+      <section id="team" className="py-20 bg-slate-50 border-t border-slate-200">
+         <div className="container mx-auto px-4">
+            <div className="text-center mb-16 max-w-3xl mx-auto">
+               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wide mb-4">
+                  <Trophy size={14} />
+                  <span>Our Story</span>
+               </div>
+               <h2 className="text-3xl font-bold text-slate-900 mb-6">Команда, закаленная опытом</h2>
+               <p className="text-lg text-slate-600 leading-relaxed">
+                 Sumly — это не случайная идея. Это результат бесчисленных проб, ошибок и "провалов", которые стали нашими главными уроками. Мы объединили техническую мощь, инновации ИИ и харизму, чтобы создать то, что действительно работает.
+               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-               <div className="group text-center">
+               
+               {/* Member 1: Muhammadsaid */}
+               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-indigo-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="https://drive.google.com/uc?export=view&id=1LiKFoZk2VPFFo4cYhkk5-EpI5-hIN2kn" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10" />
+                     <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
+                     <div className="absolute bottom-0 right-0 z-20 bg-indigo-600 p-1.5 rounded-full border-2 border-white text-white">
+                        <Code size={14} />
+                     </div>
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Мухаммадсаид</h3>
-                  <div className="text-indigo-600 text-sm font-medium">Fullstack Lead</div>
+                  <div className="text-indigo-600 text-sm font-bold mb-3 uppercase tracking-wide">Fullstack Lead</div>
+                  <p className="text-sm text-slate-500 leading-relaxed">
+                     Архитектор системы. Превращает сложные задачи в чистый код и отвечает за стабильность всей платформы.
+                  </p>
                </div>
-               <div className="group text-center">
+
+               {/* Member 2: Azamat */}
+               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-purple-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="/Images/Azamat.jpg" alt="Азамат" className="w-full h-full object-cover rounded-full relative z-10" />
+                     <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&h=400&fit=crop" alt="Азамат" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
+                     <div className="absolute bottom-0 right-0 z-20 bg-purple-600 p-1.5 rounded-full border-2 border-white text-white">
+                        <BrainCircuit size={14} />
+                     </div>
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Азамат</h3>
-                  <div className="text-indigo-600 text-sm font-medium">AI Engineer</div>
+                  <div className="text-purple-600 text-sm font-bold mb-3 uppercase tracking-wide">AI Engineer</div>
+                  <p className="text-sm text-slate-500 leading-relaxed">
+                     Мозг проекта. Обучает Gemini понимать узбекский контекст, сленг и малейшие детали чеков.
+                  </p>
                </div>
-               <div className="group text-center">
+
+               {/* Member 3: Sherzod */}
+               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-green-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="/Images/Sherzod.jpg" alt="Шерзод" className="w-full h-full object-cover rounded-full relative z-10" />
+                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Шерзод" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
+                     <div className="absolute bottom-0 right-0 z-20 bg-green-600 p-1.5 rounded-full border-2 border-white text-white">
+                        <Mic size={14} />
+                     </div>
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Шерзод</h3>
-                  <div className="text-indigo-600 text-sm font-medium">Product Manager</div>
+                  <div className="text-green-600 text-sm font-bold mb-3 uppercase tracking-wide">Vision & Voice</div>
+                  <p className="text-sm text-slate-500 leading-relaxed">
+                     Голос и лицо идеи. Презентует виденье так, что в него невозможно не поверить. Наш лучший питчер.
+                  </p>
                </div>
+
             </div>
          </div>
       </section>
