@@ -21,7 +21,9 @@ import {
   PlayCircle,
   Zap,
   ShieldCheck,
-  TrendingUp
+  TrendingUp,
+  CreditCard,
+  PieChart
 } from 'lucide-react';
 
 export default function App() {
@@ -36,167 +38,199 @@ export default function App() {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
       
       {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+      <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-indigo-950">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-200">
+          <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-indigo-950 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+            <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-200">
               S
             </div>
-            <span>SUMLY <span className="text-xs font-normal text-slate-500 ml-1 bg-slate-100 px-2 py-0.5 rounded-full border border-slate-200">MVP</span></span>
+            <span>SUMLY <span className="text-[10px] font-bold uppercase text-indigo-500 ml-1 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100 align-middle">Beta</span></span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <button onClick={() => scrollToSection('problem')} className="hover:text-indigo-600 transition-colors">О проблеме</button>
+            <button onClick={() => scrollToSection('problem')} className="hover:text-indigo-600 transition-colors">Проблема</button>
             <button onClick={() => scrollToSection('solution')} className="hover:text-indigo-600 transition-colors">Решение</button>
             <button onClick={() => scrollToSection('tech')} className="hover:text-indigo-600 transition-colors">Технологии</button>
-            <button onClick={() => scrollToSection('roadmap')} className="hover:text-indigo-600 transition-colors">Планы</button>
+            <button onClick={() => scrollToSection('team')} className="hover:text-indigo-600 transition-colors">Команда</button>
           </div>
           <button 
-            onClick={() => scrollToSection('demo')}
-            className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold rounded-lg transition-all hover:shadow-lg active:scale-95"
+            onClick={() => scrollToSection('hero-demo')}
+            className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-full transition-all hover:shadow-lg hover:shadow-indigo-200 active:scale-95"
           >
-            Live Demo
+            Попробовать Demo
           </button>
         </div>
       </nav>
 
       {/* 1. HERO SECTION */}
-      <header className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        {/* Background Visuals */}
-        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-100/40 rounded-full blur-[100px] -z-10"></div>
+      <header id="hero" className="relative pt-28 pb-16 lg:pt-40 lg:pb-32 overflow-hidden">
+        {/* Abstract Background Elements */}
+        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-100/60 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/4"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-100/60 rounded-full blur-[100px] -z-10 -translate-x-1/3 translate-y-1/4"></div>
         
-        <div className="container mx-auto px-4 text-center relative z-10">
-           
-           {/* Badge */}
-           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-indigo-100 shadow-sm text-indigo-700 text-sm font-semibold mb-8 hover:scale-105 transition-transform cursor-default">
-              <Sparkles size={16} className="text-indigo-500 fill-indigo-100" />
-              <span>AI500 Hackathon 2025</span>
-           </div>
+        <div className="container mx-auto px-4">
+           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+              
+              {/* Left Column: Copy */}
+              <div className="flex-1 text-center lg:text-left z-10 max-w-2xl mx-auto lg:mx-0">
+                 
+                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-indigo-100 shadow-sm text-indigo-600 text-xs font-bold uppercase tracking-wide mb-8 animate-fade-in-up">
+                    <Sparkles size={14} className="fill-indigo-100" />
+                    <span>Hackathon AI500 Submission</span>
+                 </div>
 
-           {/* Headline */}
-           <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-6 leading-[1.1]">
-             Финансы на <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">автопилоте</span>
-           </h1>
+                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-[1.15]">
+                   Умный учет финансов <br className="hidden lg:block"/>
+                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600">без скучных таблиц</span>
+                 </h1>
 
-           {/* Subheadline */}
-           <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-             SUMLY превращает фото чеков и голосовые заметки в аналитику за 3 секунды. 
-             Ваш личный ИИ-бухгалтер, который помогает копить, а не просто тратить.
-           </p>
+                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                   SUMLY — это ваш персональный AI-бухгалтер. Сфотографируйте чек или скажите траты голосом — нейросеть мгновенно разложит всё по категориям и подскажет, как сэкономить.
+                 </p>
 
-           {/* CTA Buttons */}
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <button 
-                onClick={() => scrollToSection('demo')} 
-                className="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-lg shadow-xl shadow-indigo-200 transition-all transform hover:-translate-y-1 active:translate-y-0"
-              >
-                 Попробовать сейчас
-              </button>
-              <button 
-                onClick={() => scrollToSection('problem')} 
-                className="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 hover:border-indigo-200 text-slate-700 hover:text-indigo-700 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
-              >
-                 <PlayCircle size={20} />
-                 Как это работает
-              </button>
-           </div>
-           
-           {/* Features Grid (Mini Stats) */}
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <div className="p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center hover:border-indigo-100 transition-colors">
-                <Zap className="text-amber-500 mb-2" size={24} />
-                <div className="text-xl font-bold text-slate-900">&lt;3 сек</div>
-                <div className="text-xs text-slate-500 font-medium">Скорость ввода</div>
+                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
+                    <button 
+                      onClick={() => scrollToSection('hero-demo')} 
+                      className="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-lg shadow-xl shadow-indigo-200 transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-2"
+                    >
+                       <Zap size={20} />
+                       Запустить Демо
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('problem')} 
+                      className="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 hover:border-indigo-200 text-slate-700 hover:text-indigo-700 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
+                    >
+                       <PlayCircle size={20} />
+                       Как это работает
+                    </button>
+                 </div>
+                 
+                 {/* Trust Indicators */}
+                 <div className="pt-8 border-t border-slate-100 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 text-slate-500">
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                       <CheckCircle2 size={16} className="text-green-500" />
+                       <span>Gemini 2.5 Flash</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                       <CheckCircle2 size={16} className="text-green-500" />
+                       <span>Распознавание чеков</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                       <CheckCircle2 size={16} className="text-green-500" />
+                       <span>Голосовой ввод</span>
+                    </div>
+                 </div>
               </div>
-              <div className="p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center hover:border-indigo-100 transition-colors">
-                <BrainCircuit className="text-indigo-500 mb-2" size={24} />
-                <div className="text-xl font-bold text-slate-900">Gemini 2.5</div>
-                <div className="text-xs text-slate-500 font-medium">Умное ядро</div>
-              </div>
-              <div className="p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center hover:border-indigo-100 transition-colors">
-                <TrendingUp className="text-green-500 mb-2" size={24} />
-                <div className="text-xl font-bold text-slate-900">~15%</div>
-                <div className="text-xs text-slate-500 font-medium">Экономия бюджета</div>
-              </div>
-              <div className="p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center hover:border-indigo-100 transition-colors">
-                <ShieldCheck className="text-blue-500 mb-2" size={24} />
-                <div className="text-xl font-bold text-slate-900">100%</div>
-                <div className="text-xs text-slate-500 font-medium">Приватность</div>
+
+              {/* Right Column: Demo App Preview */}
+              <div id="hero-demo" className="flex-1 w-full max-w-[420px] lg:max-w-md relative mx-auto">
+                 {/* Decorative blobs behind phone */}
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl -z-10"></div>
+                 
+                 {/* The App Interface */}
+                 <div className="relative transform transition-all duration-500 hover:scale-[1.02]">
+                    <DemoSection />
+                    
+                    {/* Floating Badge 1 */}
+                    <div className="absolute -right-4 top-20 bg-white p-3 rounded-xl shadow-lg border border-slate-100 hidden sm:flex items-center gap-3 animate-bounce [animation-duration:3s]">
+                       <div className="bg-green-100 p-2 rounded-lg text-green-600">
+                          <TrendingUp size={20} />
+                       </div>
+                       <div>
+                          <div className="text-xs text-slate-500 font-medium">Экономия</div>
+                          <div className="text-sm font-bold text-slate-900">+150,000 UZS</div>
+                       </div>
+                    </div>
+
+                    {/* Floating Badge 2 */}
+                    <div className="absolute -left-8 bottom-32 bg-white p-3 rounded-xl shadow-lg border border-slate-100 hidden sm:flex items-center gap-3 animate-bounce [animation-duration:4s] [animation-delay:1s]">
+                       <div className="bg-orange-100 p-2 rounded-lg text-orange-600">
+                          <PieChart size={20} />
+                       </div>
+                       <div>
+                          <div className="text-xs text-slate-500 font-medium">Анализ трат</div>
+                          <div className="text-sm font-bold text-slate-900">Мгновенно</div>
+                       </div>
+                    </div>
+                 </div>
               </div>
            </div>
         </div>
       </header>
 
-      {/* 1.5. INSIGHT / HOOK SECTION */}
-      <section className="py-16 bg-gradient-to-b from-white to-slate-50">
-         <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-               <div className="inline-block p-4 rounded-full bg-indigo-50 mb-6">
-                  <span className="text-3xl">💡</span>
-               </div>
-               <p className="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed">
-                  "У денег есть подлое свойство — они исчезают именно там, где нет внимания. <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded">Игнорировать свои расходы — значит собственноручно сжигать 15% дохода каждый месяц</span>, даже не понимая, куда именно утекают деньги."
-               </p>
-            </div>
-         </div>
-      </section>
-
-      {/* 2. PROBLEM & SOLUTION */}
+      {/* 2. PROBLEM SECTION */}
       <section id="problem" className="py-20 bg-slate-50 border-y border-slate-200">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             {/* Problem */}
             <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-red-100 text-red-600 rounded-lg">
-                  <AlertTriangle size={24} />
-                </div>
-                <h2 className="text-3xl font-bold text-slate-900">Проблема</h2>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-100 text-red-700 text-sm font-bold mb-2">
+                  <AlertTriangle size={18} />
+                  <span>Проблема</span>
               </div>
-              <h3 className="text-xl font-semibold text-slate-800">
-                Почему люди бросают учет финансов через 3 дня?
-              </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5"></div>
-                  <p className="text-slate-600"><strong>Ручной ввод утомляет:</strong> Переносить данные из чеков Korzinka/Makro в Excel долго и скучно.</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5"></div>
-                  <p className="text-slate-600"><strong>Отсутствие контекста:</strong> Общая сумма "Продукты - 500,000" не говорит, сколько потрачено на вредные снеки, а сколько на мясо.</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5"></div>
-                  <p className="text-slate-600"><strong>Культура наличных:</strong> В Узбекистане много трат на базарах и в такси, где нет цифрового следа.</p>
-                </li>
-              </ul>
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
+                Почему 80% людей бросают учет финансов через неделю?
+              </h2>
+              <p className="text-lg text-slate-600">
+                Мы все знаем, что нужно следить за расходами. Но рутина убивает мотивацию быстрее, чем мы успеваем накопить.
+              </p>
+              
+              <div className="space-y-4 mt-4">
+                <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                   <div className="mt-1 text-red-500"><CreditCard /></div>
+                   <div>
+                      <h4 className="font-bold text-slate-900">Ручной ввод — это боль</h4>
+                      <p className="text-sm text-slate-600 mt-1">Переносить цифры из чеков в Excel или приложение долго и скучно. Ошибка в одной цифре рушит весь баланс.</p>
+                   </div>
+                </div>
+                <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                   <div className="mt-1 text-red-500"><AlertTriangle /></div>
+                   <div>
+                      <h4 className="font-bold text-slate-900">Деньги исчезают незаметно</h4>
+                      <p className="text-sm text-slate-600 mt-1">"Продукты — 500,000 сумов". А что именно? Снеки, алкоголь или мясо? Без детализации нет контроля.</p>
+                   </div>
+                </div>
+              </div>
             </div>
 
-            {/* Solution */}
+            {/* Solution / Architecture Preview */}
             <div id="solution" className="bg-white p-8 rounded-2xl shadow-xl border border-indigo-100 relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-0"></div>
-               <div className="relative z-10 space-y-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 bg-green-100 text-green-600 rounded-lg">
-                      <Lightbulb size={24} />
-                    </div>
-                    <h2 className="text-3xl font-bold text-slate-900">Решение</h2>
+               <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-50 rounded-bl-[100px] -z-0"></div>
+               
+               <div className="relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-green-100 text-green-700 text-sm font-bold mb-6">
+                     <Lightbulb size={18} />
+                     <span>Решение SUMLY</span>
                   </div>
-                  <p className="text-lg text-slate-600">
-                    Мобильное приложение <strong>(Android/Flutter)</strong> с интеграцией <strong>Google Gemini 2.5 Flash</strong> для мгновенной обработки неструктурированных данных.
-                  </p>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                     <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <Smartphone className="text-indigo-600 mb-2" size={24} />
-                        <h4 className="font-bold text-slate-900">Scan & Go</h4>
-                        <p className="text-xs text-slate-500 mt-1">Фото чека &rarr; JSON детализация</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                    Автоматизация через Gemini AI
+                  </h3>
+                  
+                  <div className="space-y-6">
+                     <div className="flex items-start gap-4 group">
+                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">1</div>
+                        <div>
+                           <h4 className="font-bold text-slate-900">Сбор данных</h4>
+                           <p className="text-sm text-slate-600">Фото чека, голосовое сообщение или текст. Любой формат превращается в данные.</p>
+                        </div>
                      </div>
-                     <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <BrainCircuit className="text-indigo-600 mb-2" size={24} />
-                        <h4 className="font-bold text-slate-900">AI Coach</h4>
-                        <p className="text-xs text-slate-500 mt-1">Персонализированные советы</p>
+                     <div className="w-0.5 h-6 bg-slate-200 ml-5"></div>
+                     <div className="flex items-start gap-4 group">
+                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">2</div>
+                        <div>
+                           <h4 className="font-bold text-slate-900">Анализ (Gemini 2.5)</h4>
+                           <p className="text-sm text-slate-600">ИИ распознает товары, цены и категории. Даже если в чеке сокращения или ошибки.</p>
+                        </div>
+                     </div>
+                     <div className="w-0.5 h-6 bg-slate-200 ml-5"></div>
+                     <div className="flex items-start gap-4 group">
+                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0 font-bold">3</div>
+                        <div>
+                           <h4 className="font-bold text-slate-900">Умные советы</h4>
+                           <p className="text-sm text-slate-600">Система не просто считает, а советует: "Ты тратишь на кофе 200$ в месяц, давай сократим?"</p>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -206,257 +240,147 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. PROTOTYPE / DEMO */}
-      <section id="demo" className="py-20 bg-white">
+      {/* 3. UNDER THE HOOD (Technical Details) - Replaces old Demo Section content */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-           <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900">MVP Прототип</h2>
-              <p className="text-slate-600 mt-2">Работающая модель на базе Google Gemini API. Попробуйте прямо сейчас.</p>
-           </div>
-           
-           <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
-              <div className="flex-1 max-w-lg">
-                 <DemoSection />
-              </div>
-              <div className="flex-1 max-w-lg space-y-6">
-                 <h3 className="text-xl font-bold text-indigo-900">Как это работает "под капотом":</h3>
-                 <ol className="space-y-6 relative border-l-2 border-indigo-100 ml-3">
-                    <li className="pl-6 relative">
-                       <span className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white"></span>
-                       <h4 className="font-bold text-slate-900">Input Processing</h4>
-                       <p className="text-sm text-slate-600 mt-1">Пользователь отправляет текст, аудио или фото. React конвертирует это в промпт.</p>
-                    </li>
-                    <li className="pl-6 relative">
-                       <span className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-400 border-4 border-white"></span>
-                       <h4 className="font-bold text-slate-900">Gemini 2.5 Analysis</h4>
-                       <p className="text-sm text-slate-600 mt-1">Модель извлекает сущности (Товар, Цена, Категория) и игнорирует шум, используя <code>responseSchema</code> для чистого JSON.</p>
-                    </li>
-                    <li className="pl-6 relative">
-                       <span className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-200 border-4 border-white"></span>
-                       <h4 className="font-bold text-slate-900">Insight Generation</h4>
-                       <p className="text-sm text-slate-600 mt-1">На основе контекста (Узбекистан) генерируется совет по экономии (например, сравнение цен на базаре и в маркете).</p>
-                    </li>
-                 </ol>
+           <div className="max-w-4xl mx-auto bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-600/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
+              
+              <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+                 <div className="flex-1 space-y-6">
+                    <h2 className="text-3xl font-bold">Как это работает "под капотом"?</h2>
+                    <p className="text-slate-300">
+                       Мы используем мощь Google Gemini 2.5 Flash для обработки неструктурированных данных в реальном времени.
+                    </p>
+                    
+                    <div className="space-y-4">
+                       <div className="flex items-center gap-3 text-sm p-3 bg-white/5 rounded-lg border border-white/10">
+                          <Code className="text-indigo-400" size={20} />
+                          <span>React Frontend конвертирует инпут в промпт</span>
+                       </div>
+                       <div className="flex items-center gap-3 text-sm p-3 bg-white/5 rounded-lg border border-white/10">
+                          <BrainCircuit className="text-purple-400" size={20} />
+                          <span>Gemini API извлекает JSON схему</span>
+                       </div>
+                       <div className="flex items-center gap-3 text-sm p-3 bg-white/5 rounded-lg border border-white/10">
+                          <Database className="text-green-400" size={20} />
+                          <span>Данные категоризируются и сохраняются</span>
+                       </div>
+                    </div>
+                 </div>
+                 
+                 <div className="flex-1 bg-slate-800 rounded-xl p-6 border border-slate-700 font-mono text-xs md:text-sm overflow-x-auto w-full">
+                    <div className="text-green-400 mb-2">// Response from Gemini API</div>
+                    <pre className="text-slate-300">
+{`{
+  "total": 109500,
+  "currency": "UZS",
+  "items": [
+    { "name": "Milk", "cat": "Food" },
+    { "name": "Taxi", "cat": "Transport" }
+  ],
+  "insight": "Вы потратили 20% бюджета на такси.",
+  "savingsTip": "Используйте автобус..."
+}`}
+                    </pre>
+                 </div>
               </div>
            </div>
         </div>
       </section>
 
       {/* 4. TECH STACK & IMPLEMENTATION */}
-      <section id="tech" className="py-20 bg-slate-900 text-white">
+      <section id="tech" className="py-20 bg-slate-50">
          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">План реализации и стек</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center text-slate-900">Технологический стек</h2>
             
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-               <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                  <div className="flex items-center gap-3 mb-4 text-indigo-400">
+               <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-indigo-300 transition-colors">
+                  <div className="flex items-center gap-3 mb-4 text-indigo-600">
                      <Layers size={24} />
-                     <h3 className="font-bold text-lg">Mobile App (Android)</h3>
+                     <h3 className="font-bold text-lg text-slate-900">Mobile App</h3>
                   </div>
-                  <ul className="space-y-2 text-sm text-slate-300">
-                     <li>• <strong>Flutter (Dart)</strong></li>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                     <li>• <strong>Flutter (Dart)</strong> Cross-platform</li>
                      <li>• BLoC (State Management)</li>
-                     <li>• Material Design 3</li>
-                     <li>• Google ML Kit (OCR)</li>
+                     <li>• Google ML Kit (Local OCR)</li>
                   </ul>
                </div>
 
-               <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                  <div className="flex items-center gap-3 mb-4 text-purple-400">
+               <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-indigo-300 transition-colors">
+                  <div className="flex items-center gap-3 mb-4 text-purple-600">
                      <BrainCircuit size={24} />
-                     <h3 className="font-bold text-lg">AI & Backend</h3>
+                     <h3 className="font-bold text-lg text-slate-900">AI Core</h3>
                   </div>
-                  <ul className="space-y-2 text-sm text-slate-300">
+                  <ul className="space-y-2 text-sm text-slate-600">
                      <li>• <strong>Google GenAI SDK</strong></li>
-                     <li>• Model: <code>gemini-2.5-flash</code> (Speed)</li>
-                     <li>• Model: <code>gemini-3-pro</code> (Complex Analytics)</li>
-                     <li>• Firebase / Supabase (Auth & DB)</li>
+                     <li>• <code>gemini-2.5-flash</code> (Fast & Cheap)</li>
+                     <li>• Structured JSON Output</li>
                   </ul>
                </div>
 
-               <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                  <div className="flex items-center gap-3 mb-4 text-green-400">
+               <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-indigo-300 transition-colors">
+                  <div className="flex items-center gap-3 mb-4 text-green-600">
                      <Cpu size={24} />
-                     <h3 className="font-bold text-lg">Integrations</h3>
+                     <h3 className="font-bold text-lg text-slate-900">Backend & Infra</h3>
                   </div>
-                  <ul className="space-y-2 text-sm text-slate-300">
-                     <li>• Web Speech API (Voice Input)</li>
-                     <li>• Camera API (Scanning)</li>
-                     <li>• Telegram Bot API (Alternative interface)</li>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                     <li>• Firebase / Supabase</li>
+                     <li>• Cloud Functions</li>
+                     <li>• Telegram Bot API</li>
                   </ul>
                </div>
             </div>
          </div>
       </section>
 
-      {/* 5. ROADMAP */}
-      <section id="roadmap" className="py-20 bg-white">
+      {/* 5. TEAM */}
+      <section id="team" className="py-20 bg-white border-t border-slate-100">
          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">Дорожная карта проекта</h2>
-            
-            <div className="max-w-4xl mx-auto">
-               <div className="relative border-l-2 border-slate-200 ml-4 md:ml-0 md:pl-0 space-y-12">
-                  
-                  {/* Item 1 */}
-                  <div className="md:flex items-center justify-between group">
-                     <div className="hidden md:block w-5/12 text-right pr-8">
-                        <h4 className="text-xl font-bold text-slate-900">Идея & Ресерч</h4>
-                        <p className="text-slate-500 text-sm mt-1">Анализ проблем пользователей, CustDev, формирование гипотез.</p>
-                     </div>
-                     <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] w-5 h-5 rounded-full bg-slate-300 border-4 border-white group-hover:bg-green-500 transition-colors"></div>
-                     <div className="md:hidden pl-8 mb-2">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Ноябрь 1-25</span>
-                        <h4 className="text-xl font-bold text-slate-900">Идея & Ресерч</h4>
-                     </div>
-                     <div className="w-full md:w-5/12 pl-8 md:pl-8">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Ноябрь 1-25</span>
-                        <p className="md:hidden text-slate-500 text-sm mt-1">Анализ проблем пользователей, CustDev.</p>
-                     </div>
-                  </div>
-
-                  {/* Item 2 - Current */}
-                  <div className="md:flex items-center justify-between group">
-                     <div className="hidden md:block w-5/12 text-right pr-8">
-                        <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">Ноябрь 26-30 (Сейчас)</span>
-                     </div>
-                     <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] w-5 h-5 rounded-full bg-indigo-600 border-4 border-white shadow-lg shadow-indigo-200"></div>
-                     <div className="md:hidden pl-8 mb-2">
-                        <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">Ноябрь 26-30</span>
-                        <h4 className="text-xl font-bold text-indigo-900">MVP & Hackathon</h4>
-                     </div>
-                     <div className="w-full md:w-5/12 pl-8 md:pl-8">
-                        <h4 className="hidden md:block text-xl font-bold text-indigo-900">MVP & Hackathon</h4>
-                        <p className="text-slate-600 text-sm mt-1">Разработка ядра на Gemini API, создание <strong>Android приложения (Flutter)</strong>, демо-стенд.</p>
-                     </div>
-                  </div>
-
-                  {/* Item 3 */}
-                  <div className="md:flex items-center justify-between group">
-                     <div className="hidden md:block w-5/12 text-right pr-8">
-                        <h4 className="text-xl font-bold text-slate-900">Бета-тест</h4>
-                        <p className="text-slate-500 text-sm mt-1">Запуск на 100 пользователей, интеграция Telegram бота.</p>
-                     </div>
-                     <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] w-5 h-5 rounded-full bg-slate-200 border-4 border-white"></div>
-                     <div className="md:hidden pl-8 mb-2">
-                         <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Декабрь 2025</span>
-                        <h4 className="text-xl font-bold text-slate-900">Бета-тест</h4>
-                     </div>
-                     <div className="w-full md:w-5/12 pl-8 md:pl-8">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Декабрь 2025</span>
-                     </div>
-                  </div>
-
-                  {/* Item 4 */}
-                  <div className="md:flex items-center justify-between group">
-                     <div className="hidden md:block w-5/12 text-right pr-8">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">2026</span>
-                     </div>
-                     <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] w-5 h-5 rounded-full bg-slate-200 border-4 border-white"></div>
-                     <div className="md:hidden pl-8 mb-2">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">2026</span>
-                        <h4 className="text-xl font-bold text-slate-900">Релиз & Масштабирование</h4>
-                     </div>
-                     <div className="w-full md:w-5/12 pl-8 md:pl-8">
-                        <h4 className="hidden md:block text-xl font-bold text-slate-900">Релиз & Масштабирование</h4>
-                        <p className="text-slate-500 text-sm mt-1">Выход в AppStore/Google Play, монетизация (Freemium).</p>
-                     </div>
-                  </div>
-
+            <div className="text-center mb-16">
+               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide mb-4">
+                  <span>Dream Team</span>
                </div>
-            </div>
-         </div>
-      </section>
-
-      {/* 6. TEAM */}
-      <section id="team" className="py-20 bg-slate-50 border-t border-slate-200">
-         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-slate-900">Наша Команда</h2>
-            <div className="max-w-3xl mx-auto mb-10 text-center text-slate-600">
-               <p>Мы объединяем экспертизу в финтехе и современную AI-разработку, чтобы решить проблему финансовой грамотности.</p>
+               <h2 className="text-3xl font-bold text-slate-900">Команда проекта</h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-               
-               {/* Member 1 */}
-               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
-                  <div className="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
-                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" className="w-full h-full object-cover" />
+               <div className="group text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 relative">
+                     <div className="absolute inset-0 bg-indigo-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
+                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Мухаммадсаид</h3>
-                  <div className="text-indigo-600 text-sm font-medium mb-3">Fullstack Dev & Team Lead</div>
-                  <p className="text-xs text-slate-500 mb-4">Архитектура, React, интеграция API.</p>
-                  <div className="flex justify-center gap-3">
-                     <Github size={18} className="text-slate-400 hover:text-slate-800 cursor-pointer" />
-                     <Linkedin size={18} className="text-slate-400 hover:text-indigo-600 cursor-pointer" />
-                  </div>
+                  <div className="text-indigo-600 text-sm font-medium">Fullstack Lead</div>
                </div>
-
-               {/* Member 2 */}
-               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
-                  <div className="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
-                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="Avatar" className="w-full h-full object-cover" />
+               <div className="group text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 relative">
+                     <div className="absolute inset-0 bg-purple-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
+                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Азамат</h3>
-                  <div className="text-indigo-600 text-sm font-medium mb-3">AI Engineer</div>
-                  <p className="text-xs text-slate-500 mb-4">Настройка Gemini, RAG, обработка данных.</p>
-                  <div className="flex justify-center gap-3">
-                     <Github size={18} className="text-slate-400 hover:text-slate-800 cursor-pointer" />
-                     <Linkedin size={18} className="text-slate-400 hover:text-indigo-600 cursor-pointer" />
-                  </div>
+                  <div className="text-indigo-600 text-sm font-medium">AI Engineer</div>
                </div>
-
-               {/* Member 3 */}
-               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
-                  <div className="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
-                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jonas" alt="Avatar" className="w-full h-full object-cover" />
+               <div className="group text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 relative">
+                     <div className="absolute inset-0 bg-green-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
+                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jonas" alt="Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Шерзод</h3>
-                  <div className="text-indigo-600 text-sm font-medium mb-3">Product Manager</div>
-                  <p className="text-xs text-slate-500 mb-4">Strategy, Design, Marketing.</p>
-                  <div className="flex justify-center gap-3">
-                     <Github size={18} className="text-slate-400 hover:text-slate-800 cursor-pointer" />
-                     <Linkedin size={18} className="text-slate-400 hover:text-indigo-600 cursor-pointer" />
-                  </div>
-               </div>
-
-            </div>
-
-            {/* Why Us */}
-            <div className="mt-16 bg-indigo-50 rounded-2xl p-8 border border-indigo-100 text-center max-w-4xl mx-auto">
-               <h3 className="text-xl font-bold text-indigo-900 mb-4">Почему мы справимся?</h3>
-               <div className="grid md:grid-cols-2 gap-6 text-left">
-                  <div className="flex gap-3">
-                     <CheckCircle2 className="text-indigo-600 shrink-0" />
-                     <span className="text-indigo-800 text-sm">Глубокое понимание локального рынка (Узбекистан) и проблем пользователей.</span>
-                  </div>
-                  <div className="flex gap-3">
-                     <CheckCircle2 className="text-indigo-600 shrink-0" />
-                     <span className="text-indigo-800 text-sm">Опыт работы с LLM и GenAI (Google Gemini, OpenAI).</span>
-                  </div>
-                  <div className="flex gap-3">
-                     <CheckCircle2 className="text-indigo-600 shrink-0" />
-                     <span className="text-indigo-800 text-sm">Готовый MVP, который уже выполняет основную функцию.</span>
-                  </div>
-                  <div className="flex gap-3">
-                     <CheckCircle2 className="text-indigo-600 shrink-0" />
-                     <span className="text-indigo-800 text-sm">Сбалансированная команда (Tech + Product).</span>
-                  </div>
+                  <div className="text-indigo-600 text-sm font-medium">Product Manager</div>
                </div>
             </div>
          </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-500 py-12 border-t border-slate-800">
+      <footer className="bg-slate-900 text-slate-400 py-12">
          <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-left">
-               <div className="font-bold text-white text-xl">SUMLY</div>
-               <p className="text-xs mt-2">Hackathon Prototype.</p>
+            <div className="flex items-center gap-2">
+               <div className="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-white text-xs font-bold">S</div>
+               <span className="font-bold text-white">SUMLY</span>
             </div>
-            <div className="text-sm text-center md:text-right">
-               <p>&copy; 2025 SUMLY. Все права не защищены (Open Source MVP).</p>
-               <p className="mt-1">Built with React & Google Gemini (Demo Site).</p>
-            </div>
+            <p className="text-xs">&copy; 2025 Hackathon Prototype. Powered by Google Gemini.</p>
          </div>
       </footer>
 
