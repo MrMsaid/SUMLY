@@ -103,7 +103,7 @@ export default function App() {
                        Запустить Демо
                     </button>
                     <button 
-                      onClick={() => scrollToSection('problem')} 
+                      onClick={() => scrollToSection('how-it-works')} 
                       className="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 hover:border-indigo-200 text-slate-700 hover:text-indigo-700 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
                     >
                        <PlayCircle size={20} />
@@ -283,7 +283,7 @@ export default function App() {
       </section>
 
       {/* 3. UNDER THE HOOD (Technical Details) - Replaces old Demo Section content */}
-      <section className="py-20 bg-white">
+      <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-4">
            <div className="max-w-4xl mx-auto bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl overflow-hidden relative">
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-600/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
@@ -409,7 +409,7 @@ export default function App() {
                             <span className="text-green-500">✓</span> Интеграция Gemini 2.5 Flash
                         </li>
                         <li className="flex gap-2">
-                            <span className="text-green-500">✓</span> Базовая категоризация
+                            <span className="text-green-500">✓</span> Мобильное приложение
                         </li>
                      </ul>
                   </div>
@@ -483,7 +483,7 @@ export default function App() {
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                
                {/* Member 1: Muhammadsaid */}
-               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
+               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-indigo-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
                      <img src="https://images.unsplash.com/photo-1764522874273-e34dfc394fd0?q=80&w=735&auto=format&fit=crop" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
@@ -493,13 +493,21 @@ export default function App() {
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Мухаммадсаид</h3>
                   <div className="text-indigo-600 text-sm font-bold mb-3 uppercase tracking-wide">Fullstack Lead</div>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed mb-6">
                      Архитектор системы. Превращает сложные задачи в чистый код и отвечает за стабильность всей платформы.
                   </p>
+                  <div className="flex items-center justify-center gap-3 mt-auto">
+                    <a href="https://github.com/MrMsaid" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-50 text-slate-500 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                      <Github size={18} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/mrmuxammadsaid-murodov-a1a6b61b1" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-50 text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                      <Linkedin size={18} />
+                    </a>
+                  </div>
                </div>
 
                {/* Member 2: Azamat */}
-               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
+               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-purple-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
                      <img src="https://images.unsplash.com/photo-1764521929889-26cb17392e1a?q=80&w=784&auto=format&fit=crop" alt="Азамат" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
@@ -509,13 +517,18 @@ export default function App() {
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Азамат</h3>
                   <div className="text-purple-600 text-sm font-bold mb-3 uppercase tracking-wide">AI Engineer</div>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed mb-6">
                      Мозг проекта. Обучает Gemini понимать узбекский контекст, сленг и малейшие детали чеков.
                   </p>
+                  <div className="flex items-center justify-center gap-3 mt-auto">
+                    <a href="https://github.com/Algorithm-Azamat" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-50 text-slate-500 hover:bg-purple-50 hover:text-purple-600 transition-colors">
+                      <Github size={18} />
+                    </a>
+                  </div>
                </div>
 
                {/* Member 3: Sherzod */}
-               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300">
+               <div className="group text-center p-6 rounded-2xl bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-green-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
                      <img src="https://images.unsplash.com/photo-1764521046727-76a239f925a3?q=80&w=1635&auto=format&fit=crop" alt="Шерзод" className="w-full h-full object-cover rounded-full relative z-10 shadow-lg grayscale group-hover:grayscale-0 transition-all" />
@@ -525,9 +538,14 @@ export default function App() {
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Шерзод</h3>
                   <div className="text-green-600 text-sm font-bold mb-3 uppercase tracking-wide">Vision & Voice</div>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed mb-6">
                      Дизайнер-презентатор. Переводит сложную технологию в понятный нарратив, убедительный для инвесторов.
                   </p>
+                  <div className="flex items-center justify-center gap-3 mt-auto">
+                    <a href="https://www.linkedin.com/in/sherzod-bobojonov-48a127398/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-50 text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                      <Linkedin size={18} />
+                    </a>
+                  </div>
                </div>
 
             </div>
