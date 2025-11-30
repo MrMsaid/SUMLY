@@ -368,7 +368,7 @@ export default function App() {
                <div className="group text-center">
                   <div className="w-24 h-24 mx-auto mb-4 relative">
                      <div className="absolute inset-0 bg-indigo-100 rounded-full transform group-hover:scale-110 transition-transform"></div>
-                     <img src="/Images/Said.jpg" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10" />
+                     <img src="https://drive.google.com/uc?export=view&id=1LiKFoZk2VPFFo4cYhkk5-EpI5-hIN2kn" alt="Мухаммадсаид" className="w-full h-full object-cover rounded-full relative z-10" />
                   </div>
                   <h3 className="font-bold text-lg text-slate-900">Мухаммадсаид</h3>
                   <div className="text-indigo-600 text-sm font-medium">Fullstack Lead</div>
